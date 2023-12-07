@@ -1,0 +1,30 @@
+<div class="model">
+    <div class="card" *ngIf="movie">
+
+            <img class="image" src="{{ movie.img }}" alt="{{ movie.title }}">
+
+        <div class="card-content">
+            <h1> {{ movie.title }} </h1>
+            <h4>Released date: {{ movie.releaseDate }} </h4>
+            <p>{{movie.description}}</p>
+            
+            <div class="infos">
+                <span> <strong>Genre:</strong> {{ movie.gen }}</span>
+                <span> <strong>Duration:</strong> {{ movie.duration }}</span>
+                <span> <strong>Rating:</strong> {{ movie.rating | number: '1.1' }}</span>
+            </div>
+            
+            <div class="butns">
+                <br>
+                <a class="card-trailer" href="{{ movie.trailer }}" target="_blank">
+                    <button >
+                        Watch trailer
+                    </button>
+                </a>
+                <!-- <button (click)="addToWatchlist(movie)"> Add to watchlist</button>
+                    <button (click)="removeFromWatchlist(movie)"> remove from watchlist</button>
+                </div> -->
+            </div>
+            
+        </div>
+</div>

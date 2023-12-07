@@ -1,11 +1,12 @@
 export interface IMovies {
-    id: number;
+    id?: number;
     title: string;
     description: string;
     duration: string;
     rating: number;
     gen: string;
-    released: string;
+    releaseDate: string;
     trailer: string;
     img: string;
+    isInWatchlist?: boolean;
 }

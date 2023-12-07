@@ -1,0 +1,14 @@
+<div class="modal-container">
+    <h2>Movies on watchlist: {{ watchlist.length }}</h2>
+
+    <div *ngIf="!watchlist.length">
+        <ul> <li> There are currently no movies in the watchlist. </li> </ul>
+    </div>
+
+      <div *ngIf="watchlist.length">
+        <div *ngFor="let movie of data.watchlist">
+            <ul> <li> {{ movie.title }} </li> </ul>
+        </div>
+      </div>
+      <button mat-button [mat-dialog-close]="true">Close</button>
+</div>

@@ -1,5 +1,42 @@
+<div class="sort">
+  <button 
+     mat-button class="iconWatchlist" 
+     (click)="openWatchlistModal()"
+     matTooltip="View watchlist" >
+      My WatchList
+   </button>
+   
+  <div class="selectsort">
+    <label>Sort by:</label>
+    <select [(ngModel)]="sortBy" (change)="sortMovies()">
+      <option value="title_asc">Title Asc</option>
+      <option value="title_desc">Title Desc</option>
+      <option value="releaseDate_asc">Release Date Asc</option>
+      <option value="releaseDate_desc">Release Date Desc</option>
+    </select>
+  </div>
+
+</div>
+
 <div class="content">
-    <div class="cards">
-        
+    <div *ngFor="let movie of movies">
+      <div class="card">
+        <div class="top-title">
+          <h2>{{ movie.title }}</h2>
+          <span class="{{isWatchlist(movie) ? 'icons8-save' : 'icons8-dontsave'}}"></span>
+        </div>
+
+        <div class="card-content">
+          <img class="image" src="{{ movie.img }}" alt="{{ movie.title }}">
+          <p class="description">{{movie.description}}</p>
+        </div>
+        <div class="btns">
+          <button (click)="toggleWatchlist(movie)">
+            {{ isWatchlist(movie) ? 'Remove from Watchlist' : 'Add to Watchlist' }}
+          </button>
+          <button [routerLink]="['/details', movie.id]">More info</button>
+        </div>
+      </div>
     </div>
 </div>
+  
